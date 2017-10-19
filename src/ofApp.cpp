@@ -3,12 +3,11 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+	hmServer.startThread(true,true);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	netManager.listen();
 }
 
 //--------------------------------------------------------------
@@ -69,4 +68,11 @@ void ofApp::gotMessage(ofMessage msg){
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
+}
+
+//--------------------------------------------------------------
+void ofApp::exit() {
+
+    // stop the thread
+    hmServer.waitForThread(true,0);
 }

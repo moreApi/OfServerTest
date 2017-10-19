@@ -5,7 +5,7 @@ Protocoll
 
 leading byte:
 0 - do nothing
-1 - Echo the following 256 bytes
+101 - ascii(e) - Echo the following 256 bytes
 2 - Request height data
 
 
@@ -42,22 +42,29 @@ void HeightMapServer::listen() {
 			
 			//for protocoll information see comment on top of the page
 			switch (leadingByte) {
-			case 1: //echo
+			case 0:
+				; //do nothing
+				break;
+			case 101: //echo
 			{
+				ofLogNotice(moduleName) << "Echo request" << endl;
 				char data[256];
-				int received = 0;
-				while (received < 256) {
+				int received = 256;
+				//string s = server.receive(i);
+				while (received > 0) {
+					ofLogNotice(moduleName) << "received: "<< received << endl;
 					received -= server.receiveRawBytes(i, data, received);
 				}
 				ofLogNotice(moduleName) << "Echoing: " << data << endl;
-				server.sendRawBytes(i, data, 256); 
+				//server.sendRawBytes(i, s.c_str(), strlen(s.c_str()));
+				server.sendRawBytes(i,data,256);
 			}
 				break;
 			case 2: //send height data
 				//TODO
 				break;
 			default:
-				ofLogNotice(moduleName) << "Received unknown leading byte: " << leadingByte << endl;
+				ofLogNotice(moduleName) << "Received unknown leading byte: " << int(leadingByte) << endl;
 				//unknown leading byte
 			}
 		}
