@@ -22,7 +22,7 @@ HeightMapServer::~HeightMapServer()
 
 void HeightMapServer::threadedFunction()
 {
-	server.setup(port, false);
+	server.setup(port, true);
 	ofLog(OF_LOG_NOTICE, "server open");
 	while (isThreadRunning()) {
 		listen();
