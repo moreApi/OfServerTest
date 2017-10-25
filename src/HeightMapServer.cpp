@@ -5,7 +5,7 @@ Protocoll
 
 leading byte:
 0 - do nothing
-101 - ascii(e) - Echo the following 256 bytes
+1 - Echo the following 256 bytes
 2 - Request height data
 
 
@@ -41,11 +41,11 @@ void HeightMapServer::listen() {
 			server.receiveRawBytes(i, &leadingByte, 1);
 			
 			//for protocoll information see comment on top of the page
-			switch (leadingByte) {
+			switch ((unsigned char) leadingByte) {
 			case 0:
 				; //do nothing
 				break;
-			case 101: //echo
+			case 1: //echo
 			{
 				ofLogNotice(moduleName) << "Echo request" << endl;
 				char data[256];
