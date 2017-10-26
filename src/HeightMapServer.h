@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include <ofxNetwork.h>
 
+#include "DummyData.h"
+
 class HeightMapServer : public ofThread
 {
 public:
@@ -21,5 +23,6 @@ private:
 	ofxTCPServer server;
 
 	void listen();
+	char* getHeightData();
 };
 

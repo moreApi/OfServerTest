@@ -194,6 +194,7 @@
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPManager.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxTCPServer.h" />
     <ClInclude Include="..\..\..\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="src\DummyData.h" />
     <ClInclude Include="src\HeightMapServer.h" />
     <ClInclude Include="src\ofApp.h" />
   </ItemGroup>

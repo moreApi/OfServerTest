@@ -62,6 +62,9 @@
     <ClInclude Include="src\HeightMapServer.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\DummyData.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
