@@ -24,5 +24,6 @@ private:
 
 	void listen();
 	char* getHeightData();
+	DummyData dummyData;
 };
 
